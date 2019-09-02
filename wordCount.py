@@ -35,10 +35,13 @@ with open(inputFileName, 'r') as inputFile:  # r is read only mode
                 master[word] = 1 #Added word to dictionary
             else:
                  master[word] = master[word] + 1 # increment count for the word
+# Sort the Dictionary  
 master = sorted(master.items())
 
 # Write to output file
 with open(outputFileName, 'w') as outputFile:
-    for x in master:
-        outputFile.write (x + " " + master[x])
+    for word, count in master:
+        if word != "":
+            outputFile.write("%s %s\n" % (word, count))
+        
         
