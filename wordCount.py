@@ -28,6 +28,11 @@ with open(inputFileName, 'r') as inputFile:  # r is read only mode
         line = line.strip()
         # Make all lowercase
         line = line.lower()
+
+        #Remove punctuation
+        line = re.sub(r'[^\w\s]', '', line)
+        line = re.sub(r'\_', '', line)
+
         # split line on whitespace and punctuation
         check = re.split('[ \t]', line)
         for word in check:
